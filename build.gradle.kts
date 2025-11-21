@@ -1,7 +1,7 @@
 // Root
 plugins {
     id("java")
-    id("com.vanniktech.maven.publish") version "0.35.0"
+    id("com.vanniktech.maven.publish") version "0.28.0"
 }
 
 val gid: String by project
@@ -18,7 +18,7 @@ allprojects {
 }
 
 subprojects {
-    apply(plugin = "java")
+    apply(plugin = "java-library")
     apply(plugin = "com.vanniktech.maven.publish")
 
     java {
@@ -51,7 +51,51 @@ subprojects {
         testImplementation("org.assertj:assertj-core:3.27.6")
     }
 
+    tasks.withType<JavaCompile> {
+        options.encoding = "UTF-8"
+    }
+
     tasks.test {
         useJUnitPlatform()
+    }
+
+    mavenPublishing {
+//        publishToMavenCentral()
+        signAllPublications()
+
+        coordinates(gid, project.name, ver)
+
+        pom {
+            name = project.name
+            description = "Quant teamspace regular ${project.name}"
+            inceptionYear = "2025"
+            url = "https://github.com/Quant-Off/quant-regular"
+
+            licenses {
+                license {
+                    name = "MIT License"
+                    url = "https://mit-license.org/"
+                }
+            }
+
+            developers {
+                developer {
+                    id = "qtfelix"
+                    name = "Q. T. Felix"
+                    url = "https://github.com/Quant-TheodoreFelix"
+                }
+            }
+
+            scm {
+                url = "https://github.com/Quant-Off/quant-regular"
+                connection = "scm:git:git://github.com/Quant-Off/quant-regular.git"
+                developerConnection = "scm:git:ssh://git@github.com/Quant-Off/quant-regular.git"
+            }
+        }
+
+        configure(com.vanniktech.maven.publish.JavaLibrary(
+            sourcesJar = true,
+            javadocJar = com.vanniktech.maven.publish.JavadocJar.Javadoc()
+        ))
     }
 }

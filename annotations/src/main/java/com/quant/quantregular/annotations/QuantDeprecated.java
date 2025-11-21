@@ -37,8 +37,18 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
 public @interface QuantDeprecated {
 
+    /**
+     * 정의된 대체 사유로, 사용을 권장하지 않습니다.
+     *
+     * @return 대체 사유
+     */
     String reason();
 
+    /**
+     * 정의된 마이그레이션 가이드를 따르세요.
+     *
+     * @return 마이그레이션 가이드
+     */
     String migrateTo();
 
 }

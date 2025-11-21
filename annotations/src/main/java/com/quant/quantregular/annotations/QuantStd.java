@@ -65,17 +65,23 @@ public @interface QuantStd {
 
     /**
      * 정의된 한경 변수를 마련하세요.
+     *
+     * @return 필요 환경 변수 배열
      */
     @Language("ENV")
     String[] reqEnv() default "";
 
     /**
      * 요소를 정의된 클래스로 바인딩하세요.
+     *
+     * @return 바이딩 가능(강제) 클래스 배열
      */
     Class[] reqType() default int.class;
 
     /**
      * 반환 시 정의된 규칙을 따르세요.
+     *
+     * @return 반환 규칙
      */
     String returnRule() default "";
 

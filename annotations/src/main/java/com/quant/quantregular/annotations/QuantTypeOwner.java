@@ -39,8 +39,18 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface QuantTypeOwner {
 
+    /**
+     * 코드의 개발자를 정의합니다.
+     *
+     * @return 개발자명
+     */
     Quanters value();
 
+    /**
+     * Quant 소속이 아닌 개발자명을 정의합니다.
+     *
+     * @return Quant 소속이 아닌 개발자명
+     */
     String[] other() default "";
 
 }

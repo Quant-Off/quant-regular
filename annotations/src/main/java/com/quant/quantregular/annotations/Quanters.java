@@ -22,11 +22,29 @@
 
 package com.quant.quantregular.annotations;
 
+/**
+ * Quant 팀의 개발자들을 열거한 클래스입니다.
+ *
+ * @author Q. T. Felix
+ * @since 1.0.0
+ */
 public enum Quanters {
 
+    /**
+     * Leader
+     */
     Q_T_FELIX,
+    /**
+     * Clem
+     */
     Clem,
+    /**
+     * GJ2
+     */
     GJ2,
+    /**
+     * J3vn0
+     */
     J3vn0
 
 }

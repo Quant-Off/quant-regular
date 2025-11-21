@@ -27,7 +27,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * Quant 팀은 해당 어노테이션이 사용된 타입, 멤버 등을 외부에 공개할 수 없습니다.
- * <h1>Note</h1>
+ * <p>
  * 팀 멤버는 해당 요소를 외부의 시선이 닿는 공간에 보관해선 안 됩니다.
  *
  * @author Q. T. Felix
@@ -45,6 +45,8 @@ public @interface QuantCredential {
 
     /**
      * 공개 금지 사유입니다.
+     *
+     * @return 공개 금지 사유
      */
     String reason();
 
